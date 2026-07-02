@@ -2,14 +2,16 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Logger a = Logger.getLog();
-        a.show("Program started");
+        Logger l1 = Logger.getObj();
+        l1.log("Application started");
 
-        Logger b = Logger.getLog();
-        b.show("Reading file");
+        Logger l2 = Logger.getObj();
+        l2.log("Reading data");
 
-        if (a == b) {
-            System.out.println("Only one logger object created");
+        if (l1 == l2) {
+            System.out.println("Only one object created");
+        } else {
+            System.out.println("Different objects");
         }
     }
 }

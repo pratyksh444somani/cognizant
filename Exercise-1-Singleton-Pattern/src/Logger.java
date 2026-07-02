@@ -1,19 +1,19 @@
 public class Logger {
 
-    private static Logger log;
+    private static Logger obj;
 
     private Logger() {
-        System.out.println("Logger started");
+        System.out.println("Logger created");
     }
 
-    public static Logger getLog() {
-        if (log == null) {
-            log = new Logger();
+    public static Logger getObj() {
+        if (obj == null) {
+            obj = new Logger();
         }
-        return log;
+        return obj;
     }
 
-    public void show(String msg) {
+    public void log(String msg) {
         System.out.println(msg);
     }
 }

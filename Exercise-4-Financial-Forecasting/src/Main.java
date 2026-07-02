@@ -6,18 +6,18 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter amount: ");
+        System.out.print("Enter present value : ");
         double amt = sc.nextDouble();
 
-        System.out.print("Enter growth rate: ");
+        System.out.print("Enter growth rate (%) : ");
         double rate = sc.nextDouble();
 
-        System.out.print("Enter years: ");
+        System.out.print("Enter years : ");
         int year = sc.nextInt();
 
-        double ans = Forecast.find(amt, rate / 100, year);
+        double ans = Forecast.predict(amt, rate / 100, year);
 
-        System.out.printf("Future Value = %.2f", ans);
+        System.out.printf("Future Value : %.2f", ans);
 
         sc.close();
     }

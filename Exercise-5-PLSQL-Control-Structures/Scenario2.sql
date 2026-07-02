@@ -1,8 +1,22 @@
 SET SERVEROUTPUT ON;
 
 BEGIN
-    FOR i IN 1..5 LOOP
-        DBMS_OUTPUT.PUT_LINE('Number : ' || i);
+
+    FOR c IN (
+
+        SELECT CustomerID
+        FROM Customers
+        WHERE Balance > 10000
+
+    ) LOOP
+
+        UPDATE Customers
+        SET IsVIP = 'TRUE'
+        WHERE CustomerID = c.CustomerID;
+
     END LOOP;
+
+    COMMIT;
+
 END;
 /

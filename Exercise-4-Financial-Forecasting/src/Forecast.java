@@ -1,11 +1,11 @@
 public class Forecast {
 
-    public static double find(double amt, double rate, int year) {
+    public static double predict(double amt, double rate, int year) {
 
         if (year == 0)
             return amt;
 
-        return find(amt, rate, year - 1) * (1 + rate);
+        return predict(amt, rate, year - 1) * (1 + rate);
     }
 
 }

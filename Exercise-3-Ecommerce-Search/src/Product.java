@@ -11,7 +11,6 @@ public class Product {
     }
 
     void show() {
-        System.out.println(id + " " + name + " " + cat);
+        System.out.println(id + "  " + name + "  " + cat);
     }
-
 }

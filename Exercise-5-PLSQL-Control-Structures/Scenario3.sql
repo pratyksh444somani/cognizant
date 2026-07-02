@@ -1,11 +1,19 @@
 SET SERVEROUTPUT ON;
 
-DECLARE
-    i NUMBER := 1;
 BEGIN
-    WHILE i <= 5 LOOP
-        DBMS_OUTPUT.PUT_LINE('Count : ' || i);
-        i := i + 1;
+
+    FOR l IN (
+        SELECT CustomerID, LoanID, DueDate
+        FROM Loans
+        WHERE DueDate BETWEEN SYSDATE AND SYSDATE + 30
+    ) LOOP
+
+        DBMS_OUTPUT.PUT_LINE('Reminder: Customer '
+        || l.CustomerID || ' Loan '
+        || l.LoanID || ' Due '
+        || l.DueDate);
+
     END LOOP;
+
 END;
 /

@@ -3,21 +3,30 @@ public class Main {
     public static void main(String[] args) {
 
         Product[] p = {
+
                 new Product(101, "Laptop", "Electronics"),
                 new Product(102, "Phone", "Electronics"),
                 new Product(103, "Shoes", "Fashion"),
                 new Product(104, "Watch", "Accessories")
+
         };
 
-        Product a = Search.search(p, "Phone");
+        Product a = Search.linear(p, "Phone");
 
-        if (a != null) {
-            System.out.println("Product Found");
+        System.out.println("Linear Search");
+
+        if (a != null)
             a.show();
-        } else {
+        else
             System.out.println("Product Not Found");
-        }
 
+        Product b = Search.binary(p, "Phone");
+
+        System.out.println("\nBinary Search");
+
+        if (b != null)
+            b.show();
+        else
+            System.out.println("Product Not Found");
     }
-
 }

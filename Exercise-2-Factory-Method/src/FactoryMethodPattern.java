@@ -2,16 +2,17 @@ public class FactoryMethodPattern {
 
     public static void main(String[] args) {
 
-        DocumentFactory f;
+        DocumentFactory f1 = new WordFactory();
+        Document d1 = f1.create();
+        d1.open();
 
-        f = new WordFactory();
-        f.show();
+        DocumentFactory f2 = new PdfFactory();
+        Document d2 = f2.create();
+        d2.open();
 
-        f = new PdfFactory();
-        f.show();
-
-        f = new ExcelFactory();
-        f.show();
+        DocumentFactory f3 = new ExcelFactory();
+        Document d3 = f3.create();
+        d3.open();
 
     }
 

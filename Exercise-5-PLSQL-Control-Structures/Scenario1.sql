@@ -1,18 +1,22 @@
 SET SERVEROUTPUT ON;
 
-DECLARE
-    sal NUMBER := 45000;
-    bonus NUMBER;
 BEGIN
-    IF sal >= 50000 THEN
-        bonus := sal * 0.20;
-    ELSIF sal >= 30000 THEN
-        bonus := sal * 0.10;
-    ELSE
-        bonus := sal * 0.05;
-    END IF;
 
-    DBMS_OUTPUT.PUT_LINE('Salary : ' || sal);
-    DBMS_OUTPUT.PUT_LINE('Bonus : ' || bonus);
+    FOR c IN (
+
+        SELECT CustomerID
+        FROM Customers
+        WHERE Age > 60
+
+    ) LOOP
+
+        UPDATE Loans
+        SET InterestRate = InterestRate - 1
+        WHERE CustomerID = c.CustomerID;
+
+    END LOOP;
+
+    COMMIT;
+
 END;
 /
